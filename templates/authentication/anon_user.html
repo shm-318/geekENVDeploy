@@ -222,7 +222,9 @@
 </div>
 
 <div class="container-userimage">
-    {% if user.picture_url %}
+    {% if user.socialaccount_set.all.0.get_avatar_url %}
+    <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="rounded-circle z-depth-0" />
+    {% elif user.picture_url %}
     <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0" />
     {% else %}
     <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
@@ -231,13 +233,39 @@
 </div>
 
 <div class="detail-container">
-    <div class="detail-item">{{user.full_name}}</div>
-    <div class="detail-item">{{user.email}}</div>
-    <div class="detail-item">{{user.college}}</div>
-    <div class="detail-item">{{user.status}}</div>
-    <div class="detail-item">{{user.website}}</div>
-    <div class="detail-item">{{user.phone_number}}</div>
-    <div class="detail-item">{{user.country}}</div>
-    <div class="detail-item">{{user.gender}}</div>
+
+    {% if user.status %}
+    <div class="detail-item"> {{user.status}}</div>
+    {% endif %}
+
+    {% if user.full_name %}
+    <div class="detail-item">Name : {{user.full_name}}</div>
+    {% elif user.socialaccount_set.all.0.extra_data.name  %}
+    <div class="detail-item">Name : {{user.socialaccount_set.all.0.extra_data.name}}</div>
+    {% endif %}
+
+    {% if user.email %}
+    <div class="detail-item">Email : {{request.user.email}}</div>
+    {% endif %}
+    
+    {% if user.college %}
+    <div class="detail-item">College : {{user.college}}</div>
+    {% endif %}
+
+    {% if user.website %}
+    <div class="detail-item">Website : {{user.website}}</div>
+    {% endif %}
+
+    {% if user.phone_number %}
+    <div class="detail-item">phone Number : {{user.phone_number}}</div>
+    {% endif %}
+
+    {% if user.country %}
+    <div class="detail-item">Country : {{user.country}}</div>
+    {% endif %}
+
+    {% if user.gender %}
+    <div class="detail-item">Gender : {{user.gender}}</div>
+    {% endif %}
 </div>
 {% endblock %}
