@@ -143,16 +143,16 @@ button{
   color: #30e8bf;
 }
 .footer {
-    position:relative;
-    height: 165px;
-    background-color:black;
-    text-align: center;
-    color: white;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    margin-top: 10px;
+  position:relative;
+  height: 165px;
+  background-color:black;
+  text-align: center;
+  color: white;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
 }
 
 .develop {

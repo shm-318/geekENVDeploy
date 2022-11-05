@@ -189,4 +189,7 @@ html, body{
      margin-left: 10%;
      margin-right: 10%;
    }
+   .col-md-4 > img{
+    margin-top: 0;
+   }
 }
