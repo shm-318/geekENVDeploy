@@ -18,11 +18,14 @@ import django_heroku ## for deployment
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = os.path.join(str(BASE_DIR), 'static')
-TEMPLATE_DIR=BASE_DIR/'templates'
-MEDIA_ROOT=BASE_DIR/'media'
+TEMPLATE_DIR = BASE_DIR/'templates'
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = "/media/"
 
 #deploy
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/static/'
 
 
 # Quick-start development settings - unsuitable for production

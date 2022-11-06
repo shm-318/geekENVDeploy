@@ -5,6 +5,9 @@ from django.forms import ModelForm
 from django.http import JsonResponse
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import requires_csrf_token
+
+import requests
+from bs4 import BeautifulSoup
 # Create your views here.
 
 
@@ -62,9 +65,6 @@ def uploadf(request):
 
 
 def upload_link_view(request):
-    import requests
-    from bs4 import BeautifulSoup
-
     print(request.GET['url'])
     url = request.GET['url']
     response = requests.get(url)

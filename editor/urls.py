@@ -13,4 +13,4 @@ urlpatterns = [
     path('uploadi/',csrf_exempt(uploadi) ),
     path('uploadf/',csrf_exempt(uploadf) ),
     path('linkfetching/',upload_link_view),
-]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

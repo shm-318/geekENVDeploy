@@ -19,7 +19,7 @@ class Post(models.Model):
                             "byFile":'/uploadi/',
                             "byUrl":'/uploadi/'
                         },
-                       
+                       "additionalRequestHeaders":[{"content-type":'multipart/form-data'}]
                     }
                 },
                 "Attaches":{
@@ -30,5 +30,7 @@ class Post(models.Model):
             }
         }
     )
+    def __str__(self):
+        return self.title
 
     
