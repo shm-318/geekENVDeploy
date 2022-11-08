@@ -51,10 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'bot',
-    'editor',
-     'ide',
+    'neditor',
+    'ide',
     #! For editor API
     'django_editorjs',
+    'django_editorjs_fields',
 
     #for auth
     
@@ -108,6 +109,37 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s %(filename)s:%(lineno)d %(levelname)s - %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'django_editorjs_fields': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'django_editorjs_fields.log',
+            'maxBytes': 1024*1024*5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        'django_editorjs_fields': {
+            'handlers': ['django_editorjs_fields', 'console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 
 
 # Password validation

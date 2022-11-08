@@ -278,7 +278,14 @@ class PRDone(PasswordResetDoneView):
 class PRComplete(PasswordResetCompleteView):
     template_name = 'authentication/password_reset_complete.html'
 
+#for password change
 
+class PWDChangeView(PasswordChangeView):
+    template_name = 'authentication/password_change.html'
+    success_url = reverse_lazy('blog:password_change_done_view')
+
+class PWDChangeDoneView(PasswordChangeDoneView):
+    template_name = 'authentication/password_change_done.html'
 
 
 # user blog view
@@ -331,3 +338,21 @@ class ProfileEditView(View):
                 form[field].field.widget.attrs['class'] += ' is-invalid'
             context = {'form': form}
             return render(request, self.template_name, context=context)
+
+
+# all profiles
+
+class AllProfilesView(View):
+    template_name = 'authentication/all_profiles.html'
+
+    def get(self, request, *args, **kwargs):
+        search_term = request.GET.get('query')
+        if search_term:
+            all_profiles = User.objects.filter(username__contains = search_term ).exclude(username=request.user.username)
+        else:
+            all_profiles = User.objects.none()
+
+        context = {
+            'all_profiles' : all_profiles
+        }
+        return render(request, self.template_name,context=context)

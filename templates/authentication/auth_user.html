@@ -158,7 +158,7 @@
 
             <div class="search__input m-auto d-none d-md-block">
                 <!-- Form to search Users -->
-                <form method="GET" action="" class="form-inline">
+                <form method="GET" action="{% url 'blog:all_profiles_view' %}" class="form-inline">
                     <input type="text" autocomplete="on" placeholder="Search Blog" value="" class="searchspace"
                         name="query" />
                     <button type="submit" class="ml-2 btn p-0">
@@ -189,7 +189,7 @@
                             <span class="mr-3 fa fa-user-circle"></span>Edit Profile
                         </a>
 
-                        <a class="dropdown-item" href="">
+                        <a class="dropdown-item" href="{% url 'blog:password_change_view' %}">
                             <span class="mr-3 fa fa-cog"></span>Change Password
                         </a>
 

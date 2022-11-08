@@ -9,6 +9,7 @@ from blog.forms import UserForm,CustomUserChangeForm
 
 User = get_user_model()
 
+# For Custom User Admin
 class CustomUserAdmin(UserAdmin):
     add_form = UserForm
     form = CustomUserChangeForm

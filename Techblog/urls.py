@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     
@@ -24,10 +26,10 @@ urlpatterns = [
     url('',include('blog.urls')),
     url('bot/',include('bot.urls')),
     path('accounts/', include('allauth.urls')),
-    path('editor/', include('editor.urls')),
     path('ide/',include('ide.urls')),
+    path('editorjs/', include('django_editorjs_fields.urls')),
+    path('neditor/', include('neditor.urls')),
 
     #for password reset if some non-solvable error comes
-    #url(r'^', include('django.contrib.auth.urls')),
-    
-]
+    #url(r'^', include('django.contrib.auth.urls')),   
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

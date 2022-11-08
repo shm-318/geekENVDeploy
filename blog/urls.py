@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from blog import views
-from .views import PRView, PRDone, PRConfirm, PRComplete
+from .views import PRView, PRDone, PRConfirm, PRComplete, PWDChangeView, PWDChangeDoneView, AllProfilesView
 
 
 app_name = 'blog'
@@ -15,6 +15,10 @@ urlpatterns = [
     path('home/blog/<str:username>/', views.BlogView.as_view(), name="blog_view"),
     path('home/profile/<str:username>/edit/',views.ProfileEditView.as_view(), name='profile_edit_view'),
 
+    #all user
+    path('profiles/',AllProfilesView.as_view(),name='all_profiles_view'),
+
+    #about and contact
     url(r'^contact/', views.contact, name="contact"),
     url(r'^about/', views.about, name="about"),
 
@@ -35,6 +39,10 @@ urlpatterns = [
     path('password/reset/confirm/<uidb64>/<token>',PRConfirm.as_view(), name='password_reset_confirm'),
     path('password/reset/done/',  PRDone.as_view(), name='password_reset_done'),
     path('password/reset/complete/', PRComplete.as_view(),name='password_reset_complete'),
+
+    #password chagne
+    path('password/change/', PWDChangeView.as_view(), name='password_change_view'),
+    path('password/change/done/', PWDChangeDoneView.as_view(), name='password_change_done_view'),
 
     #editor
     
