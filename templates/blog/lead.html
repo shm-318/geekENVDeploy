@@ -52,7 +52,7 @@
     </div>
     <div class="trending">
         <div class="title-trend">
-            <h5 style="color: Black;text-align:center">Trending In geekENV</h5>
+            <h5 style="color: Black;text-align:left;padding: 0.5rem; margin-left: 4rem;">Trending In geekENV</h5>
         </div>
         <div class="story-trend">
             {% for resp2 in response2 %}
@@ -60,10 +60,10 @@
                 <div class="card-header">Famous Tech Quotes</div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                            <p style="font-size: 0.8vw">
+                            <p style="font-size: 1rem">
                                 {{resp2.quote}}
                             </p>
-                        <footer class="blockquote-footer" style="font-size: 0.6vw">
+                        <footer class="blockquote-footer" style="font-size: 1rem">
                             {{resp2.author}}<cite title="Source Title"></cite>
                         </footer>
                     </blockquote>
@@ -72,6 +72,7 @@
             {% endfor %}
         </div>
     </div>
+    
     <div class="content">
         <div class="articles">
             <h3 style="text-align: center; color: Black; margin: 20px">Featured</h3>

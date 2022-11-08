@@ -158,7 +158,6 @@ a {
 .card {
 	border: 2px solid black;
 	width: 25vw !important;
-  height: 90vh;
 	margin-left: 5vw;
 }
 #news{
@@ -171,7 +170,7 @@ a {
 .story-trend {
 	grid-area: story;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	overflow-y: hidden;
 	overflow-x: scroll;
 
@@ -290,6 +289,11 @@ a {
 	color: white;
 	background-color: blueviolet;
 }
+.trending{
+	display: grid;
+	overflow-x: scroll;
+	height: fit-content;
+}
 
 @media only screen and (max-width: 768px) {
   .title {
@@ -315,8 +319,17 @@ a {
   }
   .card {
     border: 2px solid black;
-    width: 85vw;
-    margin-left: 5vw;
+    width: 85vw !important;
+    margin-top: 5vw;
+  }
+  
+  #news{
+	width: 85vw !important;
+	height: 85vw !important;
+	margin-top: 5vw;
+	overflow-y: scroll;
+
+
   }
 
   .col-md-4 > img {
