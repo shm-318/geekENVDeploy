@@ -3,7 +3,7 @@
 
 {% block extra_head %}
 
-<link href="{% static 'img/user-profile-avtr-2.png' %}" rel="icon" />
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/authentication/main.css' %}">
 <title> Home | {{ request.user.username }} </title>
 <style>
@@ -188,12 +188,13 @@
                     <a class="nav-link dropdown-toggle" id="user__avatar" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" style="padding-top: inherit;padding: inherit;">
 
-
-                        {% if user.picture_url %}
-                        <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0">
+                        {% if user.socialaccount_set.all.0.get_avatar_url %}
+                        <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="rounded-circle z-depth-0" />
+                        {% elif user.picture_url %}
+                        <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0" />
                         {% else %}
                         <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
-                            class="rounded-circle z-depth-0">
+                            class="rounded-circle z-depth-0" />
                         {% endif %}
 
                     </a>

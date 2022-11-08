@@ -1,0 +1,28 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+
+{% block extra_head %}
+
+    <style>
+        #parent{
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="parent">
+    <div id="child">
+        <h1>{{ data }}</h1>
+    </div>
+</div>
+
+{% endblock %}

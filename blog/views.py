@@ -122,7 +122,9 @@ class ProfileView(View):
         try:
             user = User.objects.get(username=username)
         except Exception as e:
-            return HttpResponse('<h1>This User does not exist.</h1>')
+            #return HttpResponse('<h1>This User does not exist.</h1>')
+            context = {'data' : 'This User does not exist.' }
+            return render(request, 'authentication/notexist.html', context=context)
 
         # set picture_url
 
@@ -302,7 +304,9 @@ class BlogView(View):
         try:
             user = User.objects.get(username=username)
         except Exception as e:
-            return HttpResponse('<h1>This User blog does not exist.</h1>')
+            #return HttpResponse('<h1>This User blog does not exist.</h1>')
+            context = {'data' : 'This User blog does not exist.' }
+            return render(request, 'authentication/notexist.html', context=context)
 
         if username == request.user.username:
             context = {'user': user}
