@@ -157,8 +157,15 @@ a {
 
 .card {
 	border: 2px solid black;
-	width: 50vw;
+	width: 25vw !important;
+  height: 90vh;
 	margin-left: 5vw;
+}
+#news{
+  border: 2px solid black;
+  width: 60vw !important;
+  height: 45vh !important;
+  margin: 5vw;
 }
 
 .story-trend {
@@ -225,13 +232,12 @@ a {
 	margin-top: 10px;
 }
 
-<<<<<<< HEAD
+
 .col-md-4>img {
 	height: 200px;
 }
 
-=======
->>>>>>> 3d1d6f5a83b137595bb12fdbd6eeac2738f144d5
+
 .tags,
 .articles,
 .content,
@@ -286,102 +292,87 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
-	.title {
-		font-size: 1rem;
-		padding: 20px;
-		padding-bottom: 0;
-	}
+  .title {
+    font-size: 1rem;
+    padding: 20px;
+    padding-bottom: 0;
+  }
+  .jumbotron {
+    margin-left: 2%;
+    margin-right: 3%;
+  }
+  .develop {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .about {
+    font-size: medium;
+  }
+  .navbar-nav > li {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .card {
+    border: 2px solid black;
+    width: 85vw;
+    margin-left: 5vw;
+  }
 
-	.jumbotron {
-		margin-left: 2%;
-		margin-right: 3%;
-	}
-
-	.develop {
-		display: grid;
-		grid-template-rows: 1fr 1fr 1fr;
-		grid-template-columns: 1fr;
-	}
-
-	.about {
-		font-size: medium;
-	}
-
-	.navbar-nav>li {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	.card {
-		border: 2px solid black;
-		width: 85vw;
-		margin-left: 5vw;
-	}
-
-	.col-md-4>img {
-		width: 85vw;
-	}
-
-	.trending {
-		display: grid;
-		height: fit-content;
-	}
-
-	.story-trend {
-		display: grid;
-		grid-template-columns: 1fr;
-		overflow-y: scroll;
-		overflow-x: hidden;
-	}
-
-	.content {
-		display: grid;
-		grid-template-areas:
-			"tags"
-			"articles";
-	}
-
-	.tags,
-	.articles {
-		width: 95vw;
-	}
-
-	.articles {
-		border-top: 2px solid black;
-	}
-
-	.story-trend {
-		display: grid;
-	}
-
-	.quote-img {
-		display: none;
-	}
-
-	.quote {
-		display: grid;
-		font-size: medium;
-		width: 90vw;
-		position: relative;
-		left: 8%;
-	}
-
-	.brand-logo {
-		height: 25vh;
-	}
-
-	.btn-success {
-		width: 100px;
-		height: 35px;
-		padding: 2px;
-		font-size: medium;
-		margin-left: 25%;
-		margin-bottom: 7%;
-	}
-
-	.brand-logo {
-		padding: 0;
-	}
+  .col-md-4 > img {
+    width: 85vw;
+  }
+  .trending {
+    display: grid;
+    height: fit-content;
+  }
+  .story-trend
+  {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .content {
+    display: grid;
+    grid-template-areas:
+      "tags"
+      "articles";
+  }
+  .tags,
+  .articles {
+    width: 95vw;
+  }
+  .articles{
+    border-top: 2px solid black;
+  }
+  .story-trend {
+    display: grid;
+  }
+  .quote-img {
+    display: none;
+  }
+  .quote {
+    display: grid;
+    font-size: medium;
+    width: 90vw;
+    position: relative;
+    left: 8%;
+  }
+  .brand-logo {
+    height: 25vh;
+  }
+  .btn-success {
+    width: 100px;
+    height: 35px;
+    padding: 2px;
+    font-size: medium;
+    margin-left: 25%;
+    margin-bottom: 7%;
+  }
+  .brand-logo {
+    padding: 0;
+  }
 }
 
 ::-webkit-scrollbar {

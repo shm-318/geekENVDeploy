@@ -53,71 +53,21 @@
             <h5 style="color: Black;text-align:center">Trending In geekENV</h5>
         </div>
         <div class="story-trend">
-            <div class="card trend">
-                <div class="card-header">Quote</div>
+            {% for resp2 in response2 %}
+            <div class="card">
+                <div class="card-header">Famous Tech Quotes</div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                        <p style="font-size: 12px">
-                            A well-known quote, contained in a blockquote element.
-                        </p>
-                        <footer class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
+                            <p style="font-size: 0.8vw">
+                                {{resp2.quote}}
+                            </p>
+                        <footer class="blockquote-footer" style="font-size: 0.6vw">
+                            {{resp2.author}}<cite title="Source Title"></cite>
                         </footer>
                     </blockquote>
                 </div>
             </div>
-            <div class="card trend">
-                <div class="card-header">Quote</div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p style="font-size: 12px">
-                            A well-known quote, contained in a blockquote element.
-                        </p>
-                        <footer class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="card trend">
-                <div class="card-header">Quote</div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p style="font-size: 12px">
-                            A well-known quote, contained in a blockquote element.
-                        </p>
-                        <footer class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="card trend">
-                <div class="card-header">Quote</div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p style="font-size: 12px">
-                            A well-known quote, contained in a blockquote element.
-                        </p>
-                        <footer class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="card trend">
-                <div class="card-header">Quote</div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p style="font-size: 12px">
-                            A well-known quote, contained in a blockquote element.
-                        </p>
-                        <footer class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="content">
@@ -125,7 +75,7 @@
             <h3 style="text-align: center; color: Black; margin: 20px">Featured</h3>
             <div style="max-height: 80vh;overflow-x:hidden;overflow-y:scroll">
                 {% for x in response.articles %}
-                <div class="card mb-3">
+                <div class="card mb-3" id="news">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="{{ x.urlToImage }}" class="img-fluid rounded-start"

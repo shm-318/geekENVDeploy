@@ -1,3 +1,4 @@
+from decouple import config
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import *
@@ -171,8 +172,11 @@ def Signin(request, *args, **kwargs):
 def IndexView(request):
     if request.user.is_authenticated:
         return redirect('blog:profile_view', request.user.username)
-    response=requests.get('https://newsapi.org/v2/everything?q=programming&from=2022-10-07&sortBy=popularity&apiKey=cd0565836d8743369c48a336dc08e944').json()
-    return render(request, 'blog/lead.html',{'response':response})
+    response=requests.get('https://newsapi.org/v2/everything?q=programming&from=2022-10-27&sortBy=popularity&apiKey='+config('NEWS_API_KEY')).json()
+    category = 'computers'
+    api_url = 'https://api.api-ninjas.com/v1/quotes?category={}'.format(category)+'&limit=5'
+    response2 = requests.get(api_url, headers={'X-Api-Key': config('QUOTE_API_KEY')}).json()
+    return render(request, 'blog/lead.html',{'response':response,'response2':response2})
 
 
 
