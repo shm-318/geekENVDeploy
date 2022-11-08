@@ -41,8 +41,10 @@
             <p>Presenting a New domain of Developer Interaction!<br>
                 Share Ideas, grow and Help Others Grow!<br>
             </p>
+            {% if not user.is_authenticated %}
             <button class="btn btn-success"><a href="{% url 'blog:signin' %}"
                     style="text-decoration:none;color:white">Let me in!</a></button>
+            {% endif %}
         </div>
         <div class="quote-img" style="height:25vh;margin-top:20px">
             <img src="{% static 'img_vr.png' %}" style="height: 100%; width: 100%; object-fit: contain">

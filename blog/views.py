@@ -170,8 +170,8 @@ def Signin(request, *args, **kwargs):
 
 # Main page
 def IndexView(request):
-    if request.user.is_authenticated:
-        return redirect('blog:profile_view', request.user.username)
+    """ if request.user.is_authenticated:
+        return redirect('blog:profile_view', request.user.username) """
     response=requests.get('https://newsapi.org/v2/everything?q=programming&from=2022-10-27&sortBy=popularity&apiKey='+config('NEWS_API_KEY')).json()
     category = 'computers'
     api_url = 'https://api.api-ninjas.com/v1/quotes?category={}'.format(category)+'&limit=5'
