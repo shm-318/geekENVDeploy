@@ -6,7 +6,7 @@ from django.urls import reverse
 # Create your models here.
 
 class Contact(models.Model):
-    Name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     Email = models.EmailField(max_length=200)
     ContactNo= models.PositiveBigIntegerField()
     Message = models.CharField(max_length=500)
