@@ -14,9 +14,9 @@ class TestForm(forms.ModelForm):
         model = Post
         exclude = []
         widgets = {
-            'body_editorjs': EditorJsWidget(config={'minHeight': 100}),
+            'body_editorjs': EditorJsWidget(config={'minHeight': 20,'border':0,'placeholder':'Share Your Story Here'}),
             'body_textfield': EditorJsWidget(plugins=[
                 "@editorjs/image",
                 "@editorjs/header"
-            ], config={'minHeight': 100})
+            ], config={'minHeight': 20,'placeholder':'Title'})
         }

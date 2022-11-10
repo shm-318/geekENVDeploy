@@ -6,6 +6,7 @@ body{
   font-family: Montserrat, sans-serif;
   background: #28223f;
 }
+
 .container{
   user-select: none;
   margin: 20px auto;
@@ -178,6 +179,13 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
+  .fas.fa{
+    display: none !important;
+  }
+  #nav-profile{
+    visibility: hidden;
+    display: none;
+  }
   .title {
     font-size: 1rem;
     padding: 20px;
