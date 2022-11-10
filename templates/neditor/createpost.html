@@ -33,7 +33,16 @@
                     <a class="navbar-brand" href="#"><img src="{% static 'img_vr.png' %}" style="height: 40px;margin-left:90%"></a>
                 </li>
                 <li class="nav-item" style="margin-top:10px">
-                   <p class="nav-link" style="color:rgba(0,0,0,.84)!important;margin-left:40px;font-size:16px">Draft in Shivam Mishra</p>
+                   <p class="nav-link" style="color:rgba(0,0,0,.84)!important;margin-left:40px;font-size:16px">
+                        Draft in 
+                    {% if user.socialaccount_set.all.0.extra_data.name %}
+                        {{ user.socialaccount_set.all.0.extra_data.name }}
+                    {% elif user.full_name %}
+                        {{ user.full_name }}
+                    {% else %}
+                        {{user.username}}
+                    {% endif %}
+                    </p>
                 </li>
                 <li class="nav-item" style="margin-top:10px">
                     <p class="nav-link" style="color:rgba(0,0,0,.54)!important">Saved</p>
@@ -42,11 +51,26 @@
                     <a class="nav-link"><button type="submit" id="postSbmt">Submit</button></a>
                 </li>
             </ul>
+
+            {% if user.is_authenticate %}
             <ul class="navbar-nav" style="position: absolute; right: 245px;" >
                 <li class="nav-item">
-                    <i class="fas fa-user-circle" style="font-size: 2rem;" id="nav-profile"></i>
+        
+                    <a href="{% url 'blog:profile_view' request.user.username %}" class="nav-link" id="user__avatar" aria-haspopup="true"
+                        aria-expanded="false" style="padding-top: inherit;padding: inherit;">
+
+                        {% if user.socialaccount_set.all.0.get_avatar_url %}
+                        <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" style="height: 40px;" class="rounded-circle z-depth-0" />
+                        {% elif user.picture_url %}
+                        <img src="{{ user.picture_url }}" style="height: 40px;" class="rounded-circle z-depth-0" />
+                        {% else %}
+                        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
+                            style="height: 40px;" class="rounded-circle z-depth-0" />
+                        {% endif %}
+                    </a>
                 </li>
             </ul>
+            {% endif %}
         </div>
     </div>
 </nav>

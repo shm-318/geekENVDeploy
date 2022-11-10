@@ -3,17 +3,18 @@ from django.urls import path, include
 from django.conf.urls import url
 from blog import views
 from .views import PRView, PRDone, PRConfirm, PRComplete, PWDChangeView, PWDChangeDoneView, AllProfilesView
-
+from django.contrib.auth.decorators import login_required
 
 app_name = 'blog'
+
 urlpatterns = [
 
     url(r'^$', views.IndexView, name='index_view'),
 
     # user
-    path('home/profile/<str:username>/',views.ProfileView.as_view(), name="profile_view"),
-    path('home/blog/<str:username>/', views.BlogView.as_view(), name="blog_view"),
-    path('home/profile/<str:username>/edit/',views.ProfileEditView.as_view(), name='profile_edit_view'),
+    path('profile/<str:username>/',views.ProfileView.as_view(), name="profile_view"),
+    path('blog/<str:username>/', views.BlogView.as_view(), name="blog_view"),
+    path('profile/<str:username>/edit/',login_required(views.ProfileEditView.as_view()), name='profile_edit_view'),
 
     #all user
     path('profiles/',AllProfilesView.as_view(),name='all_profiles_view'),
@@ -21,8 +22,6 @@ urlpatterns = [
     #about and contact
     url(r'^contact/', views.contact, name="contact"),
     url(r'^about/', views.about, name="about"),
-
-    url(r'^createblog/', views.createBlog, name="createblog"),
 
     # for signin/signout
     path('signout/', views.Signout, name='signout'),

@@ -5,6 +5,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/authentication/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/card.css' %}">
 <title> Home | {{ request.user.username }} </title>
 <style>
     #user__avatar img {
@@ -45,9 +46,9 @@
         height: 25px;
         padding: 10px;
         margin: 10px;
-        background-color: rgba(248, 35, 35, 0.789);
-        color: white;
-        border-bottom: 2px solid white;
+        background-color: transparent;
+        color: black;
+        border-bottom: 1px solid white;
         outline: none;
     }
 
@@ -228,15 +229,20 @@
             </ul>
 
             <a class="navbar-brand" href="/">
-                <img src="{% static 'geek_logo.png' %}" class="nav__logo" style="width: 5rem; height: 3rem;">
+                <img src="{% static 'geek_logo.png' %}" class="nav__logo" style="width: 4rem; height: 3rem;">
             </a>
 
         </div>
     </nav>
 </header>
 
-<div class="content" style="height: 55vh;">
+<div id="card">
+    <div id="card-title">
+        
+    </div>
+    <div id="user-info">
 
+    </div>
 </div>
 
 {% endblock %}

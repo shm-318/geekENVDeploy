@@ -41,10 +41,6 @@ from django.core.mail import EmailMessage, message, send_mail
 
 User = get_user_model()
 
-# for editor
-def createBlog(request):
-    return render(request, 'blog/editor.html', {})
-
 
 # Signup user with email confirmation
 def signup(request):
