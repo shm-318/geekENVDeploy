@@ -28,7 +28,7 @@ class NewPost(View):
 
         if bound_form.is_valid():
             new_post = bound_form.save()
-            return redirect('neditor:post_detail')
+            return redirect('neditor:post_detail',new_post.pk)
         return render(request, 'neditor/createpost.html', {'form': bound_form})
 
 class PostUpdate(View):
@@ -43,7 +43,7 @@ class PostUpdate(View):
 
         if bound_form.is_valid():
             new_post = bound_form.save()
-            return redirect('neditor:post_detail')
+            return redirect('neditor:post_detail',pk)
         return render(request, 'neditor/post_update.html', {'form': bound_form, 'post': post})
 
 

@@ -54,11 +54,11 @@ input:focus {
   background-color:#1a8917;
   border: none;
   color: white;
-  padding: 2px 5px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  margin: 10px 15px;
   cursor: pointer;
   border-radius: 16px;
 }
