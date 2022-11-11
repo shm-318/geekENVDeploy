@@ -37,7 +37,7 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 #from django.contrib.auth.models import User
 from django.core.mail import EmailMessage, message, send_mail
-
+from neditor.models import Post
 
 User = get_user_model()
 
@@ -304,11 +304,12 @@ class BlogView(View):
             context = {'data' : 'This User blog does not exist.' }
             return render(request, 'authentication/notexist.html', context=context)
 
+        posts = Post.objects.filter(user=user)
         if username == request.user.username:
-            context = {'user': user}
+            context = {'posts': posts,'user':user}
             return render(request, self.template_name_auth, context=context)
         else:
-            context = {'user': user}
+            context = {'posts': posts,'user':user}
             return render(request, self.template_name_anon, context=context)
 
 

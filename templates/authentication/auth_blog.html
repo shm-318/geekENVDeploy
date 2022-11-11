@@ -288,27 +288,37 @@
     </nav>
 </header>
 
-<div id="post-card">
-    <div id="post-card-content" class="info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consectetur, atque soluta deserunt perspiciatis aliquam voluptates nemo nam minus tempore ipsum odit in laboriosam a itaque! At voluptatibus porro possimus?
-    </div>
-    <div id="user-info">
-        <div id="post-card-user-img" class="info">
-            <a href="{% url 'blog:profile_view' request.user.username %}" class="nav-link" id="user__avatar" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" style="padding-top: inherit;padding: inherit;">
 
-                {% if user.socialaccount_set.all.0.get_avatar_url %}
-                <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
-                {% elif user.picture_url %}
-                <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;"/>
-                {% else %}
-                <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
-                    class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
-                {% endif %}
-            </a>
+{% for post in posts %}
+    <a href="{% url 'neditor:post_detail' post.pk %}">
+        <div id="post-card">
+            <div id="post-card-content" class="info">
+                {{post.title}}
+            </div>
+            <div id="user-info">
+                <div id="post-card-user-img" class="info">
+                    <a href="{% url 'blog:profile_view' request.user.username %}" class="nav-link" id="user__avatar" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" style="padding-top: inherit;padding: inherit;">
+
+                        {% if user.socialaccount_set.all.0.get_avatar_url %}
+                        <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
+                        {% elif user.picture_url %}
+                        <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;"/>
+                        {% else %}
+                        <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
+                            class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
+                        {% endif %}
+                    </a>
+                </div>
+                <div id="post-card-user-name" class="info">
+                    {{user.full_name}}
+                    {% if user.organization %}
+                        {{user.organization}}
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        <div id="post-card-user-name" class="info">Suraj kumar NIT Patna</div>
-    </div>
-</div>
+    </a>
+{% endfor %}
 
 {% endblock %}
