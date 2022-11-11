@@ -1,1 +1,1 @@
-document.getElementById("id_title").setAttribute("placeholder", " Title");
+document.getElementById("id_title").setAttribute("placeholder", "Title");

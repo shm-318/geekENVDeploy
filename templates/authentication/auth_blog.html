@@ -5,7 +5,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/authentication/main.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/card.css' %}">
 <title> Home | {{ request.user.username }} </title>
 <style>
     #user__avatar img {
@@ -110,6 +109,36 @@
         margin-top: 10px;
     }
 
+    /* post card css start here */
+    #post-card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.5px solid rgba(0, 0, 0, 0.484);
+        border-radius: 8px;
+        min-height: 8rem;
+        margin: 2rem 15rem;
+        padding: 20px;
+    }
+    #post-card:hover{
+        box-shadow: 5px 10px 10px black;
+    }
+    #post-card-content{
+        width: 80%;
+    }
+    #post-card-user-img:hover{
+        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.736);
+    }
+    #user-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .info{
+        padding: 5px;
+    }
+    /* post card css end here */
 
     @media only screen and (max-width: 600px) {
         .search__input {
@@ -126,6 +155,28 @@
 
         .inmobile {
             display: block;
+        }
+        
+        #post-card{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            border-radius: 5px;
+            min-height: 5rem;
+            margin: 2rem ;
+        }
+        #post-card-content{
+            width: 70%;
+        }
+        #user-info{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .info{
+            padding: 2px;
         }
     }
 
@@ -144,6 +195,7 @@
             margin-top: 70px;
         }
     }
+
 </style>
 {% endblock %}
 
@@ -236,12 +288,26 @@
     </nav>
 </header>
 
-<div id="card">
-    <div id="card-title">
-        
+<div id="post-card">
+    <div id="post-card-content" class="info">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consectetur, atque soluta deserunt perspiciatis aliquam voluptates nemo nam minus tempore ipsum odit in laboriosam a itaque! At voluptatibus porro possimus?
     </div>
     <div id="user-info">
+        <div id="post-card-user-img" class="info">
+            <a href="{% url 'blog:profile_view' request.user.username %}" class="nav-link" id="user__avatar" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" style="padding-top: inherit;padding: inherit;">
 
+                {% if user.socialaccount_set.all.0.get_avatar_url %}
+                <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
+                {% elif user.picture_url %}
+                <img src="{{ user.picture_url }}" class="rounded-circle z-depth-0" style="height: 60px; width: auto;"/>
+                {% else %}
+                <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
+                    class="rounded-circle z-depth-0" style="height: 60px; width: auto;" />
+                {% endif %}
+            </a>
+        </div>
+        <div id="post-card-user-name" class="info">Suraj kumar NIT Patna</div>
     </div>
 </div>
 

@@ -3,37 +3,27 @@
 
 
 {% block title%}
-<title>geekENV</title>
+    <title>geekENV</title>
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/lead.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/lead.css' %}" />
+    <style>
+        #nav-login-btn{
+		margin-top: -10px !important;
+	}
+    </style>
 {% endblock %}
 
 
 {% block body_block %}
-<!-- <style>
-    .success {
-        list-style: none;
-        background-color: #2e6da4;
-        color: white;
-        box-shadow: 12px 12px 12px #e61c66;
-        text-align: center;
-    }
-</style>
-{% if messages %}
-<ul class="messages" id="msg">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-        {% endfor %}
-</ul>
-<script>
-    setTimeout(function () {
-        if ($('#msg').length > 0) {
-            $('#msg').remove();
-        }
-    }, 4000)    // 2000 millisecond
-</script>
+
+<!-- {% if messages %}
+    <ul class="messages" id="msg">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
 {% endif %} -->
 <div class="container">
     <div class="brand-logo">
@@ -41,10 +31,10 @@
             <p>Presenting a New domain of Developer Interaction!<br>
                 Share Ideas, grow and Help Others Grow!<br>
             </p>
-            {% if not user.is_authenticated %}
-            <button class="btn btn-success"><a href="{% url 'blog:signin' %}"
+            <!-- {% if not user.is_authenticated %}
+            <button class="btn btn-success" style="border: none;"><a href="{% url 'blog:signin' %}"
                     style="text-decoration:none;color:white">Let me in!</a></button>
-            {% endif %}
+            {% endif %} -->
         </div>
         <div class="quote-img" style="height:25vh;margin-top:20px">
             <img src="{% static 'img_vr.png' %}" style="height: 100%; width: 100%; object-fit: contain">
@@ -60,9 +50,9 @@
                 <div class="card-header">Famous Tech Quotes</div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                            <p style="font-size: 1rem">
-                                {{resp2.quote}}
-                            </p>
+                        <p style="font-size: 1rem">
+                            {{resp2.quote}}
+                        </p>
                         <footer class="blockquote-footer" style="font-size: 1rem">
                             {{resp2.author}}<cite title="Source Title"></cite>
                         </footer>
@@ -72,7 +62,7 @@
             {% endfor %}
         </div>
     </div>
-    
+
     <div class="content">
         <div class="articles">
             <h3 style="text-align: center; color: Black; margin: 20px">Featured</h3>
@@ -82,13 +72,16 @@
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="{{ x.urlToImage }}" class="img-fluid rounded-start"
-                                alt="{% static 'news_default.png' %}" style="height:80%;margin-top: 10%;margin-bottom: 10%;"/>
+                                alt="{% static 'news_default.png' %}"
+                                style="height:80%;margin-top: 10%;margin-bottom: 10%;" />
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="author">
-                                    <a href="#" style="text-decoration: none; color: Black"><b>{{x.author}}</b></a>from<a
-                                        href="#" style="text-decoration: none; color: Black"><b>{{x.source.name}}</b></a>
+                                    <a href="#"
+                                        style="text-decoration: none; color: Black"><b>{{x.author}}</b></a>from<a
+                                        href="#"
+                                        style="text-decoration: none; color: Black"><b>{{x.source.name}}</b></a>
                                     <a href="#" style="text-decoration: none; color: Black">
                                         <h5 class="card-title">{{x.title}}</h5>
                                     </a>

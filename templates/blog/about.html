@@ -25,6 +25,13 @@
     
 
     <style>
+
+        body{
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        /*   this is for bot button   */
         button {
             height: 60px;
             width: 60px;
@@ -32,6 +39,15 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+        }
+
+
+        #nav-login-btn{
+            height: 38px !important;
+            width: 100px !important;
+            border: none;
+            margin-top: 30px;
+            margin-right: 0px;
         }
 
         #togglebutton {
@@ -121,16 +137,12 @@
                             </ul>
                         </li>
                     </ul>
-                    <!-- <ul class="navbar-nav" style="position: absolute; right: 5px;" >
-                        <li class="nav-item">
-                            <i class="fas fa-user-circle" style="font-size: 2rem; color:white" id="nav-profile"></i>
-                        </li>
-                    </ul> -->
-                    <ul class="navbar-nav" style="position: absolute; right: 5px;" >
-                        <li class="nav-item">
+                
+                    <ul class="navbar-nav" style="position: absolute; right: 0rem; display: flex; justify-content: center" >
+                        <li class="nav-item" style="margin-top: 10px; margin-right: 20px;">
                             {% if user.is_authenticated %}
                             <a href="{% url 'blog:profile_view' request.user.username %}" class="nav-link" id="user__avatar" aria-haspopup="true"
-                                aria-expanded="false" style="padding-top: inherit;padding: inherit;">
+                                aria-expanded="false" style="padding-top: 0px;">
         
                                 {% if user.socialaccount_set.all.0.get_avatar_url %}
                                 <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" style="height: 40px;" class="rounded-circle z-depth-0" />
@@ -142,11 +154,7 @@
                                 {% endif %}
                             </a>
                             {% else %}
-                                <ul class="navbar-nav" style="position: absolute; right: 5px;" >
-                                    <li class="nav-item">
-                                        <i class="fas fa-user-circle" style="font-size: 2rem; color:white" id="nav-profile"></i>
-                                    </li>
-                                </ul>
+                                <button type="button" id="nav-login-btn" class="btn btn-primary"><a href="{% url 'blog:signin' %}" style="text-decoration:none; color: white;">Sign In</a></button>
                             {% endif %}
                         </li>
                     </ul>

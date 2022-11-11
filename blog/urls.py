@@ -40,9 +40,7 @@ urlpatterns = [
     path('password/reset/complete/', PRComplete.as_view(),name='password_reset_complete'),
 
     #password chagne
-    path('password/change/', PWDChangeView.as_view(), name='password_change_view'),
-    path('password/change/done/', PWDChangeDoneView.as_view(), name='password_change_done_view'),
-
-    #editor
+    path('password/change/', login_required(PWDChangeView.as_view()), name='password_change_view'),
+    path('password/change/done/', login_required(PWDChangeDoneView.as_view()), name='password_change_done_view'),
     
 ]

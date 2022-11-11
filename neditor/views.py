@@ -10,7 +10,10 @@ def home(request):
         form = TestForm(request.POST)
         if form.is_valid():
             post = form.save()
-            return redirect('/')
+            return redirect('neditor:post_detail')
+        else:
+            return render(request, 'neditor/index.html', {'form': form})
+
     form = TestForm()
     return render(request, 'neditor/index.html', {'form': form})
 
@@ -25,7 +28,7 @@ class NewPost(View):
 
         if bound_form.is_valid():
             new_post = bound_form.save()
-            return redirect(new_post)
+            return redirect('neditor:post_detail')
         return render(request, 'neditor/createpost.html', {'form': bound_form})
 
 class PostUpdate(View):
@@ -40,7 +43,7 @@ class PostUpdate(View):
 
         if bound_form.is_valid():
             new_post = bound_form.save()
-            return redirect(new_post)
+            return redirect('neditor:post_detail')
         return render(request, 'neditor/post_update.html', {'form': bound_form, 'post': post})
 
 
