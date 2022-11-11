@@ -21,6 +21,7 @@ class ContactForm(forms.ModelForm):
 
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
 class UserForm(UserCreationForm):
     class Meta:
         model = User

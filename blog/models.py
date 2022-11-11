@@ -30,5 +30,5 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=20, null=True, blank=True)
     gender = models.CharField(max_length=10,null=True, blank=True)
     
-    def str(self):
+    def __str__(self):
         return self.username
