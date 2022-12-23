@@ -248,4 +248,4 @@ AUTH_USER_MODEL = 'blog.User'
 EDITORJS_VERSION = '2.22.1'
 
 #activate djnago_heroku
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
