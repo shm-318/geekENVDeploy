@@ -19,7 +19,7 @@ def runCode(request):
         source = request.POST['source']
         lang = request.POST['lang']
         data = {
-            'client_secret': '2252a15d8dd6479195d3ce394abc6b44944d32c8',
+            'client_secret': 'bc40b60349b9ddd98cf2fda31c9d1s7112chdsd85hs231',
             'async': 0,
             'source': source,
             'lang': lang,

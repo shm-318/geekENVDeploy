@@ -170,7 +170,7 @@ def Signin(request, *args, **kwargs):
 def IndexView(request):
     """ if request.user.is_authenticated:
         return redirect('blog:profile_view', request.user.username) """
-    response=requests.get('https://newsapi.org/v2/everything?q=programming&from=2022-10-27&sortBy=popularity&apiKey='+config('NEWS_API_KEY')).json()
+    response=requests.get('https://newsapi.org/v2/everything?q=programming&from=2022-11-27&sortBy=popularity&apiKey='+config('NEWS_API_KEY')).json()
     category = 'computers'
     api_url = 'https://api.api-ninjas.com/v1/quotes?category={}'.format(category)+'&limit=5'
     response2 = requests.get(api_url, headers={'X-Api-Key': config('QUOTE_API_KEY')}).json()
